@@ -2,7 +2,7 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import vercel from "@astrojs/vercel/edge";
+import vercel from "@astrojs/vercel/serverless";
 import robotsTxt from "astro-robots-txt";
 import { defineConfig } from "astro/config";
 import { setting } from "./src/config.ts";
@@ -10,8 +10,8 @@ import { setting } from "./src/config.ts";
 // https://astro.build/config
 export default defineConfig({
  site: `${setting.site.url}` ? `${setting.site.url}` : "http://site.com",
-//  base: `${setting.site.base_path}` ? `${setting.site.base_path}` : "/",
-//  trailingSlash: `${setting.site.trailing_slash}` ? "always" : "never",
+ base: `${setting.site.base_path}` ? `${setting.site.base_path}` : "/",
+ trailingSlash: `${setting.site.trailing_slash}` ? "always" : "never",
  experimental: {
   assets: true,
   viewTransitions: true,
