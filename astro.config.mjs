@@ -2,15 +2,20 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
+import vercel from "@astrojs/vercel/edge";
 import robotsTxt from "astro-robots-txt";
 import { defineConfig } from "astro/config";
 import { setting } from "./src/config.ts";
 
+// https://astro.build/config
 export default defineConfig({
  site: `${setting.site.url}` ? `${setting.site.url}` : "http://site.com",
  base: `${setting.site.base_path}` ? `${setting.site.base_path}` : "/",
  trailingSlash: `${setting.site.trailing_slash}` ? "always" : "never",
- experimental: { assets: true, viewTransitions: true },
+ experimental: {
+  assets: true,
+  viewTransitions: true,
+ },
  compressHTML: true,
  integrations: [
   tailwind({
@@ -28,4 +33,6 @@ export default defineConfig({
    ],
   }),
  ],
+ output: "server",
+ adapter: vercel(),
 });
