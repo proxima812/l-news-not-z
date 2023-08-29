@@ -1,5 +1,4 @@
 ---
-import List from "@components/List";
 import Base from "@layouts/Base.astro";
 
 export const prerender = true;
@@ -19,8 +18,8 @@ const items = await response.json();
    <p><b>Каналы:</b> Савромат, Кац, Наки</p>
   </div>
   <div class="grid gap-5 items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-   <List client:load />
-   <!-- {
+   <!-- <List client:load /> -->
+   {
     items.map((post) => (
      <div class="flex flex-col gap-5 bg-white rounded-md p-5">
       <h3 class="text-lg flex items-start gap-2">
@@ -37,7 +36,7 @@ const items = await response.json();
       </a>
      </div>
     ))
-   } -->
+   }
   </div>
  </main>
 </Base>
