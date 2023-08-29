@@ -4,8 +4,6 @@
   "baseUrl": ".",
   "strictNullChecks": true,
   "allowJs": true,
-  "resolveJsonModule": true,
-  "allowSyntheticDefaultImports": true,
   "paths": {
    "@assets/*": ["./src/assets/*"],
    "@layouts/*": ["./src/layouts/*"],
