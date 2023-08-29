@@ -10,8 +10,8 @@ import { setting } from "./src/config.ts";
 // https://astro.build/config
 export default defineConfig({
  site: `${setting.site.url}` ? `${setting.site.url}` : "http://site.com",
- base: `${setting.site.base_path}` ? `${setting.site.base_path}` : "/",
- trailingSlash: `${setting.site.trailing_slash}` ? "always" : "never",
+//  base: `${setting.site.base_path}` ? `${setting.site.base_path}` : "/",
+//  trailingSlash: `${setting.site.trailing_slash}` ? "always" : "never",
  experimental: {
   assets: true,
   viewTransitions: true,
