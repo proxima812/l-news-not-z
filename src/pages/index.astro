@@ -1,7 +1,7 @@
 ---
 import YU from "@components/YU.astro";
 import Base from "@layouts/Base.astro";
-export const prerender = true;
+export const prerender = false;
 
 const response = await fetch(import.meta.env.KEY + "/rest/v1/videos", {
  headers: {
