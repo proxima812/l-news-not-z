@@ -1,7 +1,7 @@
 export const setting = {
  site: {
   name: "",
-  url: "https://site.com",
+  url: "https://l-news.vercel.app/",
   base_path: "/",
   trailing_slash: false,
   SEO: {

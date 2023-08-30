@@ -2,8 +2,9 @@ const Parser = require("rss-parser");
 const { createClient } = require("@supabase/supabase-js");
 
 // Инициализация Supabase
-const supabaseUrl = import.meta.env.KEY;
-const supabaseKey = import.meta.env.KEY_ANON;
+const supabaseUrl = "https://fhcypsstothlyammqrvm.supabase.co";
+const supabaseKey =
+ "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZoY3lwc3N0b3RobHlhbW1xcnZtIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODczNzg0NzYsImV4cCI6MjAwMjk1NDQ3Nn0.hLjJdzbslh4KDBUD9I1KVo7r094H_GKAHpzP3MinDtU";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Словарь для соответствия названия канала и его идентификатора
@@ -11,12 +12,20 @@ const channelMapping = {
  Савромат: "UCwdFktjRfL1MuLiLIpmVQtg",
  "Майкл Наки": "UCgpSieplNxXxLXYAzJLLpng",
  "Максим Кац": "UCUGfDbfRIx51kJGGHIFo8Rw",
+ "24 Канал": "UCEC4D0dTTJr_EEnEJz15hnQ",
+ "Александр Балу": "UCc3wvzU99elwjLO4_HOTmog",
+ "Маша Борзунова": "UCuA9uOYjAaefVYIuHPhYc5g",
+ "Антон Хардин": "UC2CwLS7djYymder2K3UpbJg",
 };
 
 const channelIds = [
  "UCwdFktjRfL1MuLiLIpmVQtg",
  "UCgpSieplNxXxLXYAzJLLpng",
  "UCUGfDbfRIx51kJGGHIFo8Rw",
+ "UCEC4D0dTTJr_EEnEJz15hnQ",
+ "UCc3wvzU99elwjLO4_HOTmog",
+ "UCuA9uOYjAaefVYIuHPhYc5g",
+ "UC2CwLS7djYymder2K3UpbJg",
 ];
 
 /**
