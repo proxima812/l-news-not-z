@@ -1,55 +1,62 @@
 ---
-import Card from "@components/UI/Card.astro";
-import { authors } from "@data/authors";
-import Base from "@layouts/Base.astro";
-export const prerender = false;
+import Card from '@components/UI/Card.astro'
+import { authors } from '@data/authors'
+import Base from '@layouts/Base.astro'
+export const prerender = false
 
-const response = await fetch(import.meta.env.KEY + "/rest/v1/videos", {
- headers: {
-  apikey: import.meta.env.KEY_ANON,
- },
-});
-const items = await response.json();
+const response = await fetch(import.meta.env.KEY + '/rest/v1/videos', {
+  headers: {
+    apikey: import.meta.env.KEY_ANON,
+  },
+})
+const items = await response.json()
 
 interface Props {
- title: string;
- link: string;
- createdat: string;
- videoId: string;
- channelId: string;
+  title: string
+  link: string
+  createdat: string
+  videoId: string
+  channelId: string
 }
 ---
 
-<Base>
- <main class="flex flex-col gap-12 my-20 container mx-auto px-6">
-  <div class="flex flex-wrap gap-5">
-   <span class="text-green-600 bg-green-200 px-3 py-1 rounded-md">
-    Обновление контента с видео каждые - <b>12 часов.</b>
-   </span>
-   <span class="text-red-600 bg-red-200 px-3 py-1 rounded-md">
-    Последнее видео, которые вышли <b>48 часов</b> назад - <b>удаляются!</b></span
-   >
-  </div>
+<Base
+  title="Я Против Z фашизма в России. Новости без Z-пропоганды."
+  description="Новости без Z-пропоганды."
+>
+  <main class="flex flex-col gap-12 my-20 container mx-auto px-6">
+    <h1 class="font-bold text-2xl">
+      Я Против <span class="text-red-500">Z</span> фашизма в России. Новости без <span class="text-red-500">Z</span>-пропоганды.
+    </h1>
 
-  <aside class="flex gap-5 flex-wrap items-center justify-between">
-   <h2 class="text-2xl font-bold">За последние 24 часа.</h2>
-   <nav class="flex flex-wrap items-center gap-3">
-    {
-     authors.map((item) => (
-      <a href={item.yb_link} class="underline underline-offset-4 text-blue-500">
-       {item.name}
-      </a>
-     ))
-    }
-   </nav>
-  </aside>
+    <div class="flex flex-wrap gap-5">
+      <span class="text-green-600 bg-green-200 px-3 py-1 rounded-md">
+        Обновление контента с видео каждые - <b>12 часов.</b>
+      </span>
+      <span class="text-red-600 bg-red-200 px-3 py-1 rounded-md">
+        Последнее видео, которые вышли <b>48 часов</b> назад - <b>удаляются!</b></span
+      >
+    </div>
 
-  <div class="grid gap-5 items-start grid-cols-1 md:grid-cols-2">
-   {
-    items
-     .sort((a, b) => new Date(b.createdat) - new Date(a.createdat))
-     .map((post) => <Card post={post} />)
-   }
-  </div>
- </main>
+    <aside class="flex gap-5 flex-wrap items-center justify-between">
+      <h2 class="text-2xl font-bold">За последние 24 часа.</h2>
+      <nav class="flex flex-wrap items-center gap-3">
+        {
+          authors.map((item) => (
+            <a href={item.yb_link} class="underline underline-offset-4 text-blue-500">
+              {item.name}
+            </a>
+          ))
+        }
+      </nav>
+    </aside>
+
+    <div class="grid gap-5 items-start grid-cols-1 md:grid-cols-2">
+      {
+        items
+          .sort((a, b) => new Date(b.createdat) - new Date(a.createdat))
+          .map((post) => <Card post={post} />)
+      }
+    </div>
+  </main>
 </Base>
