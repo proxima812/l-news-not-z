@@ -1,0 +1,33 @@
+---
+interface Props {
+  title: string
+  desc: string
+  created_at?: string
+  price: string
+}
+
+const { post } = Astro.props
+---
+
+<article
+  class="shadow-sm ring-1 ring-gray-200 bg-white rounded-xl p-6 flex items-center gap-6"
+>
+  {
+    post.img &&
+    !post.img.includes('/app/static/media/no_thumbnail.15f456ec5.svg') &&
+    post.img.includes('src=') ? (
+      <div set:html={post.img} class="rounded-2xl" />
+    ) : null
+  }
+
+  <div class="flex flex-col gap-3">
+    <h2 class="font-bold text-xl">{post.title}</h2>
+    <spa class="font-bold text-red-600">{post.price}</spa>
+    <p class="text-gray-500">{post.desc}</p>
+    <a
+      target="_blank"
+      href={post.link}
+      class="text-blue-500 underline underline-offset-4 font-medium">Ссылка на товар</a
+    >
+  </div>
+</article>

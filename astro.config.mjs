@@ -14,7 +14,6 @@ export default defineConfig({
  trailingSlash: `${setting.site.trailing_slash}` ? "always" : "never",
  experimental: {
   assets: true,
-  viewTransitions: true,
  },
  compressHTML: true,
  integrations: [
